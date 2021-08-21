@@ -1,4 +1,6 @@
 # spring-security-oauth-jwt-keycloak
+reference - https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps
+            https://developer.okta.com/blog/2019/03/12/oauth2-spring-security-guide
 
 GitHub auth url - https://github.com/login/oauth/authorize?response_type=code&client_id=a784ba219a9b10c869c4&scope=read&state=awwssddee&grant_type=authorization_code
 
