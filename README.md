@@ -14,17 +14,33 @@ GitHub token url - https://github.comGitHub/login/oauth/access_token
   "redirect_uri": "http://localhost:8080/login/oauth2/code"
 }
 
-https://api.github.com/user - GET
 
-"Authorization": Bearer 23u8ewy7ey28372e73y2ewuedh1uieiued
-
+# Get Auth code - GET type
 KeyCloak auth url - http://localhost:8080/auth/realms/appsdevelopers/protocol/openid-connect/auth?grant_type=authorization_code&response_type=code&client_id=test-client-id-from-keycloak&scope=openid%20profile&redirect_uri=http://localhost:8083/callback&state=awwssddee
 
-KeyCloak token url - http://localhost:8080/auth/realms/appsdevelopers/protocol/openid-connect/token
+# Get access token -POST type
+KeyCloak token url / body content type - X-WWW-form-urlencoded - http://localhost:8080/auth/realms/appsdevelopers/protocol/openid-connect/token
 { 
  "client_id": "test-client-id-from-keycloak",
  "client_secret": "d76f5b4b-a3ba-485e-8da1-f5d7fd2770ae",
  "redirect_uri": "http://localhost:8083/callback",
  "scope": "openid profile",
- "code": "59e77305-ca5f-4ba2-af93-caedc3961ef9.b2cb75e0-dbfb-483d-8504-7687e8a04e35.493f2455-0f41-4090-b307-aa65328434f4"
+ "code": "59e77305-ca5f-4ba2-af93-caedc3961ef9.b2cb75e0-dbfb-483d-8504-7687e8a04e35.493f2455-0f41-4090-b307-aa65328434f4",
+ "grant_type": "authorization_code"
 }
+
+# Get Refresh token - to get never expired refresh-token, set - "scope": "offline_access"
+KeyCloak token url / body content type - X-WWW-form-urlencoded - http://localhost:8080/auth/realms/appsdevelopers/protocol/openid-connect/token
+{ 
+ "client_id": "test-client-id-from-keycloak",
+ "client_secret": "d76f5b4b-a3ba-485e-8da1-f5d7fd2770ae",
+ "redirect_uri": "http://localhost:8083/callback",
+ "scope": "offline_access",
+ "refresh_token": "59e77305-ca5f-4ba2-af93-caedc3961ef9.b2cb75e0-dbfb-483d-8504-7687e8a04e35.493f2455-0f41-4090-b307-aa65328434f4",
+ "grant_type": "refresh_toke"
+}
+
+# Access resource server data
+http://localhost:8082/data - GET - pass access-token in Authorization header
+
+"Authorization": Bearer 23u8ewy7ey28372e73y2ewuedh1uieiued
