@@ -1,5 +1,9 @@
+logging:
+  level: 
+    '[org.springframework.security]': DEBUG
+
 server:
-  port: 8083
+  port: 8082
 
 spring:
   thymeleaf:
@@ -8,23 +12,8 @@ spring:
   security:    oauth2:      resourceserver:        jwt:          jwk-set-uri: http://localhost:8080/auth/realms/appsdevelopers/protocol/openid-connect/certs
          # issuer-uri: http://localhost:8080/auth/realms/appsdevelopers
     
-    # GITHub#  security:
-#    oauth2:
-#      client:
-#        registration:
-#            client-id: a784ba219a9b10c869c4
-#            client-secret: 199f87d4e2794a4b102d50e354cbf5214ee583c1
-#            client-name: GitHub
-#            scope: read
-#            provider: custom-provider
-#            redirect-uri: http://localhost:8080/login/oauth2/code
-#            client-authentication-method: basic
-#            authorization-grant-type: authorization_code
-#        provider:
-#          custom-provider:
-#            token-uri: https://github.com/login/oauth/access_token
-#            authorization-uri: https://github.com/login/oauth/authorize
-#            user-info-uri: https://api.github.com/user
-#            user-name-attribute: id
-#      resourceserver:#        jwt:#          issuer-uri: 
-#          jwk-set-uri:     
+#  ssl:
+#    key-store-password: 
+#    key-store: classpath:mykeystore.p12
+#    key-store-type: PKCS12
+#    key-alias:  

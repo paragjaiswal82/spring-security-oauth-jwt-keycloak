@@ -32,4 +32,14 @@ public class SecurityConfiguration
 		.jwtAuthenticationConverter(jwtAuthenticationConverter);
 		
 	}
+	
+	/*
+	 * @Override protected void configure(HttpSecurity http) throws Exception {
+	 * http.authorizeRequests().antMatchers("/","/myapp/login").permitAll()
+	 * .anyRequest().authenticated().and().csrf().disable()
+	 * //.formLogin().loginPage("/login").defaultSuccessUrl("/success")
+	 * .oauth2Login().successHandler(oauth2authSuucessHandler);
+	 * 
+	 * }
+	 */
 }
